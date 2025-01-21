@@ -1,0 +1,28 @@
+Package: HaploVar
+Type: Package
+Title: Defining Local Haplotype Variants for Use in Trait Association and Trait Prediction Analyses  
+Version: 0.0.0.9000
+Authors@R: 
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: A local haplotyping tool for use in trait association and trait prediction analyses pipelines.
+    HaploVar enables users take SNPs (in VCF format) and a LD matrix, calculate local haplotypes and format 
+    the output to be compatible with a wide range of trait association and trait prediction tools.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    dplyr,
+    tidyr,
+    stringr,
+    tibble,
+    magrittr,
+    dbscan
+Depends: 
+    R (>= 4.00)
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
