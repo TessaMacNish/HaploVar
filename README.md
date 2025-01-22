@@ -13,3 +13,6 @@
 devtools::install_github("TessaMacNish/HaploVar")
 library(HaploVar)
 ```
+## Documentaion
+
+For a basic tutorial on how to use `HaploVar` please refer to [introduction](https://htmlpreview.github.io/?https://github.com/TessaMacNish/HaploVar/blob/main/vignettes/introduction.html)
