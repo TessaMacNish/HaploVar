@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Tessa MacNish" />
+
+<meta name="date" content="2025-01-21" />
+
+<title>introduction</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">introduction</h1>
+<h4 class="author">Tessa MacNish</h4>
+<h4 class="date">2025-01-21</h4>
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>HaploVar is an R package designed to define local haplotypes,
+identify haplotype variants and format the output to be compatible with
+a wide range or GWAS and genomic selection tools. In this tutorial we
+will go through how to use each of the functions, so that you can use
+HaploVar in your GWAS or genomic selection pipelines.</p>
+<p>HaploVar requires a VCF file and an LD matrix to calculate local
+haplotypes. For this purpose we have provided VCF and LD files for you
+to use. The data is sourced from Wu et al.(2019) but only a small subset
+of the data has been used for this tutorial.</p>
+<p>The first step is to download HaploVar.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;TessaMacNish/HaploVar&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(HaploVar)</span></code></pre></div>
+</div>
+<div id="preparing-inputs" class="section level2">
+<h2>Preparing inputs</h2>
+<p>If you need a helper function to read in your VCF or LD matrix files,
+we recommend crosshap (Marsh et al., 2023) which has inbuilt functions
+for this purpose.</p>
+<p>In this tutorial we will use the data sets provided with the
+tool.</p>
+<p><strong>VCF</strong> The VCF file must contain only biallelic SNPs.
+We recommend filtering your VCF prior to using HaploVar. Your file
+should look similar to the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">head</span>(vcf, <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 10</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;   `#CHROM`   POS ID          REF   ALT   QUAL  FILTER INFO  FORMAT R4155_R4155</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      </span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; 1 chrC01     860 chrC01_860  T     C     .     PASS   .     GT     0|0        </span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; 2 chrC01     905 chrC01_905  A     G     .     PASS   .     GT     0|0        </span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; 3 chrC01    1060 chrC01_1060 T     A     .     PASS   .     GT     0|0        </span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; 4 chrC01    1173 chrC01_1173 T     G     .     PASS   .     GT     0|0        </span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; 5 chrC01    1689 chrC01_1689 C     T     .     PASS   .     GT     0|0</span></span></code></pre></div>
+<p><strong>LD</strong> The LD matrix is a table with the dimensions m ×
+m, where m represents the number of SNPs. The LD matrix can be made
+using any pairwise LD metric such as D (Robbins, 1918), D′ (Lewontin,
+1964), or r2 (Hill &amp; Roberston, 1968).Your file should look similar
+to the following:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">head</span>(LD, <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt;             chrC01_860 chrC01_905 chrC01_1060 chrC01_1173 chrC01_1689</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; chrC01_860    1.000000   0.916682    0.771448    0.726267    0.201850</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; chrC01_905    0.916682   1.000000    0.770426    0.722951    0.194335</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; chrC01_1060   0.771448   0.770426    1.000000    0.846441    0.211454</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; chrC01_1173   0.726267   0.722951    0.846441    1.000000    0.223112</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; chrC01_1689   0.201850   0.194335    0.211454    0.223112    1.000000</span></span></code></pre></div>
+</div>
+<div id="define-haplotypes" class="section level2">
+<h2>Define Haplotypes</h2>
+<p>The first function of HaploVar is define_haplotypes, which takes a
+vcf file and a LD matrix, defines local haplotypes and outputs a list of
+haplotype tables. The local haplotypes are calculated using DBSCAN
+(Ester et al. 1996). The parameters for define_haplotypes include the
+following:</p>
+<p><strong>epsilon</strong> Epsilon is a parameter of the DBSCAN
+clustering algorithm and it affects haplotype density. Epsilon values
+can range between 0 and 1 (the default is 0.6) If the epsilon value is
+too low you will not find any haplotypes, but if it is too high then
+your haplotypes may contain noise. We recommend trying a few different
+epsilon values with a small section of your data to identify what
+epsilon value works best for your data. For this tutorial we will use an
+epsilon value of 0.8.</p>
+<p><strong>MGmin</strong> MGmin is another DBSCAN parameter. This
+parameter determines the minimum number of SNPs within a cluster for it
+to be defined as a haplotype. We will use the default of 30.</p>
+<p><strong>hetmiss_as</strong> Affects how missing data is handled for
+all instances where one allele in a genotype is missing.If hetmiss_as =
+“allele” the genotype is assumed to be heterozygous. If hetmiss_as =
+“miss” the genotype is treated as NA. We will use the default of
+“allele”.</p>
+<p><strong>keep_outliers</strong> If FALSE (the default), keep_outliers
+removes SNPs that are determined to be outliers.</p>
+<p>An example of how to use define_haplotypes is as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="do">##Run define_haplotypes</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>haplotype_list <span class="ot">&lt;-</span> <span class="fu">define_haplotypes</span>(vcf, LD, <span class="at">epsilon =</span> <span class="fl">0.8</span>) <span class="co">#this produces a list of haplotype tables</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>haplotype_table <span class="ot">&lt;-</span> haplotype_list[[<span class="dv">1</span>]] <span class="co">#this is the first haplotype tables</span></span></code></pre></div>
+<p>Each haplotype table is named based on the position of their first
+and their last SNP. The haplotype tables contain all of the SNPs within
+that haplotype and their genotypes.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">head</span>(haplotype_table, <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt;               R4155_R4155 R4156_R4156 R4157_R4157 R4158_R4158 R4159_R4159</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; chrC01_386610         0|0         1|0         0|0         0|0         0|0</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; chrC01_386728         0|0         0|0         0|0         0|0         0|0</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; chrC01_387190         0|0         1|1         0|0         0|0         0|0</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; chrC01_387646         0|0         1|0         0|0         0|0         0|0</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; chrC01_387659         0|0         1|0         0|0         0|0         0|0</span></span></code></pre></div>
+</div>
+<div id="collate-define-haplotypes" class="section level2">
+<h2>Collate Define Haplotypes</h2>
+<p>What if you have multiple VCF files that you need to define
+haplotypes for, and you need all of the results in one file? You could
+run define_haplotypes on each pair of VCF files and LD matrices, but
+then you would have several lists. collate_define_haplotypes is designed
+to collate the output of define_haplotypes into one list of haplotype
+tables. The inputs for this function are a list of VCF files and a list
+of LD matrices. There must be one LD matrix for each VCF file. A
+demonstration of how to use this function is below:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="do">##Prepare the data</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>haplotype_list2 <span class="ot">&lt;-</span> haplotype_list <span class="co">#We are copying the haplotype_list so that we have two lists for the demonstration </span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>list_outputs <span class="ot">&lt;-</span> <span class="fu">list</span>(haplotype_list, haplotype_list2) <span class="co">#The input must be in list format</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="do">##Run collate_haplotype_list</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>collate_haplotype_list <span class="ot">&lt;-</span> <span class="fu">collate_define_haplotypes</span>(list_outputs)</span></code></pre></div>
+</div>
+<div id="define-haplotypes-globally" class="section level2">
+<h2>Define Haplotypes Globally</h2>
+<p>The other way to run define_haplotypes for several vcf files and
+collate the results is to run define_haplotypes_globally. This function
+will take a pair of vcf and LD matrix files and run define_haplotypes.
+It will then repeat this process for all vcf and LD matrix files
+provided. Finally, it will collate the results. This function has the
+same parameters as define_haplotypes except that instead of a single vcf
+and LD matrix file define_haplotypes_globally requires a list of vcf and
+LD files. define_haplotypes_globally also requires a list of epsilon
+values, one for each vcf file.</p>
+<p>A demonstration of how to use this function is below:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="do">##Prepare the data</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>vcf2 <span class="ot">&lt;-</span> vcf </span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>vcf_list <span class="ot">&lt;-</span> <span class="fu">list</span>(vcf, vcf2) <span class="co">#The vcf files must be in list format</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>LD2 <span class="ot">&lt;-</span> LD</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>LD_list <span class="ot">&lt;-</span> <span class="fu">list</span>(LD, LD2) <span class="co">#The LD matrices must be in list format</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="do">##Prepare parameters</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>epsilon_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.8</span>) <span class="co">#The length of this list must be the same as the number of vcf files.</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="do">##Run define_haplotypes_globally</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>haplotype_list_global <span class="ot">&lt;-</span> <span class="fu">define_haplotypes_globally</span>(vcf_list, LD_list, <span class="at">epsilon =</span> epsilon_list)</span></code></pre></div>
+</div>
+<div id="identify-haplotypes-variants" class="section level2">
+<h2>Identify Haplotypes Variants</h2>
+<p>The other main function is haplotype_variants, which defines local
+haplotypes, identifies haplotype variants and formats the output to be
+compatible with a wide range of GWAS and genomic selection tools. The
+parameters for haplotype_variants are the same as the parameters for
+define_haplotypes, with the added parameter for output format. The other
+additional parameter is minFreq, which is the minimum number of
+individuals a haplotype variant must be present in to be considered a
+valid haplotype variant. A demonstration of how to use this function is
+below:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="do">##Run haplotype_variants</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>format1 <span class="ot">&lt;-</span> <span class="fu">haplotype_variants</span>(vcf, LD, <span class="at">epsilon =</span> <span class="fl">0.8</span>, <span class="at">format =</span> <span class="dv">1</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>format2 <span class="ot">&lt;-</span> <span class="fu">haplotype_variants</span>(vcf, LD, <span class="at">epsilon =</span> <span class="fl">0.8</span>, <span class="at">format =</span> <span class="dv">2</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>format3 <span class="ot">&lt;-</span> <span class="fu">haplotype_variants</span>(vcf, LD, <span class="at">epsilon =</span> <span class="fl">0.8</span>, <span class="at">format =</span> <span class="dv">3</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>format4 <span class="ot">&lt;-</span> <span class="fu">haplotype_variants</span>(vcf, LD, <span class="at">epsilon =</span> <span class="fl">0.8</span>, <span class="at">format =</span> <span class="dv">4</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>format5 <span class="ot">&lt;-</span> <span class="fu">haplotype_variants</span>(vcf, LD, <span class="at">epsilon =</span> <span class="fl">0.8</span>, <span class="at">format =</span> <span class="dv">5</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>format6 <span class="ot">&lt;-</span> <span class="fu">haplotype_variants</span>(vcf, LD, <span class="at">epsilon =</span> <span class="fl">0.8</span>, <span class="at">format =</span> <span class="dv">6</span>)</span></code></pre></div>
+<p>Format 1 is the default output. This format shows the haplotype
+variants for each haplotype, represented by letters A to ZZ. Zero
+represents the absence of any haplotype variant. This may be due to
+missing data or because there was no valid haploypes in that region for
+that individual.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">head</span>(format1, <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">6</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt;              MARKER  CHROM    POS R4155_R4155 R4156_R4156 R4157_R4157</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt; 1 hap_386610_407953 chrC01 386610         A|A         0|0         A|A</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt; 2 hap_667407_678097 chrC01 667407         B|B         0|B         B|B</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt; 3 hap_703723_721842 chrC01 703723       LA|LA         0|0       LA|LA</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="co">#&gt; 4 hap_850089_912143 chrC01 850089         A|A         A|A         A|A</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt; 5 hap_886749_913778 chrC01 886749         A|A         A|A         A|A</span></span></code></pre></div>
+<p>Format 2 is compatible with some GWAS tools. The numbers represent
+the number of copies present for each haplotype variants. The haplotype
+variant can either be absent from that individual (0), have one copy
+present (1) or two copies present (2).</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">head</span>(format2, <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">6</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co">#&gt;                MARKER  CHROM    POS R4155_R4155 R4156_R4156 R4157_R4157</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="co">#&gt; 1 hap_386610_407953_A chrC01 386610           2           0           2</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co">#&gt; 2 hap_386610_407953_B chrC01 386610           0           0           0</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="co">#&gt; 3 hap_386610_407953_K chrC01 386610           0           0           0</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="co">#&gt; 4 hap_386610_407953_R chrC01 386610           0           0           0</span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="co">#&gt; 5 hap_386610_407953_F chrC01 386610           0           0           0</span></span></code></pre></div>
+<p>Format 3 is compatible with genomic selection tools.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">head</span>(format3, <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">3</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co">#&gt;             hap_386610_407953_A hap_386610_407953_B hap_386610_407953_K</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">#&gt; R4155_R4155                   2                   0                   0</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">#&gt; R4156_R4156                   0                   0                   0</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="co">#&gt; R4157_R4157                   2                   0                   0</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="co">#&gt; R4158_R4158                   2                   0                   0</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="co">#&gt; R4159_R4159                   2                   0                   0</span></span></code></pre></div>
+<p>Format 4 is compatible with GWAS tools.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">head</span>(format4, <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">6</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="co">#&gt;                MARKER  CHROM    POS R4155_R4155 R4156_R4156 R4157_R4157</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co">#&gt; 1 hap_386610_407953_A chrC01 386610           1          -1           1</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="co">#&gt; 2 hap_386610_407953_B chrC01 386610          -1          -1          -1</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co">#&gt; 3 hap_386610_407953_K chrC01 386610          -1          -1          -1</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="co">#&gt; 4 hap_386610_407953_R chrC01 386610          -1          -1          -1</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="co">#&gt; 5 hap_386610_407953_F chrC01 386610          -1          -1          -1</span></span></code></pre></div>
+<p>Format 5 is compatible with genomic selection tools.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">head</span>(format5, <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">3</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="co">#&gt;             hap_386610_407953_A hap_386610_407953_B hap_386610_407953_K</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="co">#&gt; R4155_R4155                   1                  -1                  -1</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="co">#&gt; R4156_R4156                  -1                  -1                  -1</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="co">#&gt; R4157_R4157                   1                  -1                  -1</span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#&gt; R4158_R4158                   1                  -1                  -1</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co">#&gt; R4159_R4159                   1                  -1                  -1</span></span></code></pre></div>
+<p>Format 6 is a VCF format and is compatible with tools that read a VCF
+file. This format can be used for GWAS.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">head</span>(format6, <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="co">#&gt;   #CHROM    POS                  ID REF ALT QUAL FILTER INFO FORMAT R4155_R4155</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="co">#&gt; 1 chrC01 386610 hap_386610_407953_A   .   .    .   PASS    .     GT         1|1</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="co">#&gt; 2 chrC01 386610 hap_386610_407953_B   .   .    .   PASS    .     GT         0|0</span></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="co">#&gt; 3 chrC01 386610 hap_386610_407953_K   .   .    .   PASS    .     GT         0|0</span></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="co">#&gt; 4 chrC01 386610 hap_386610_407953_F   .   .    .   PASS    .     GT         0|0</span></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="co">#&gt; 5 chrC01 386610 hap_386610_407953_G   .   .    .   PASS    .     GT         0|0</span></span></code></pre></div>
+</div>
+<div id="collate-haplotypes-variants" class="section level2">
+<h2>Collate Haplotypes Variants</h2>
+<p>collate_haplotype_variants collates output tables from
+haplotype_variants and collates them into one table, which you can input
+into the GWAS or genomic selection tool of your choice.
+collate_haplotype_variants has two parameters, the list of haplotype
+variant tables and format. The format number used for
+collate_haplotype_variants must be the same as the format number used
+when haplotype_variants was run.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="do">##format1</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>format1B <span class="ot">&lt;-</span> format1</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>format1_list <span class="ot">&lt;-</span> <span class="fu">list</span>(format1, format1B) <span class="co">#The input for collate_haplotype_variants must be in list format.</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>format1_collate <span class="ot">&lt;-</span> <span class="fu">collate_haplotype_variants</span>(format1_list, <span class="at">format =</span> <span class="dv">1</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a><span class="do">##Format2</span></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>format2B <span class="ot">&lt;-</span> format2</span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>format2_list <span class="ot">&lt;-</span> <span class="fu">list</span>(format2, format2B)</span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>format2_collate <span class="ot">&lt;-</span> <span class="fu">collate_haplotype_variants</span>(format2_list, <span class="at">format =</span> <span class="dv">2</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a><span class="do">##format3</span></span>
+<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a>format3B <span class="ot">&lt;-</span> format3</span>
+<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a>format3_list <span class="ot">&lt;-</span> <span class="fu">list</span>(format3, format3B)</span>
+<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a>format3_collate <span class="ot">&lt;-</span> <span class="fu">collate_haplotype_variants</span>(format3_list, <span class="at">format =</span> <span class="dv">3</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a><span class="do">##Format4</span></span>
+<span id="cb17-14"><a href="#cb17-14" tabindex="-1"></a>format4B <span class="ot">&lt;-</span> format4</span>
+<span id="cb17-15"><a href="#cb17-15" tabindex="-1"></a>format4_list <span class="ot">&lt;-</span> <span class="fu">list</span>(format4, format4B)</span>
+<span id="cb17-16"><a href="#cb17-16" tabindex="-1"></a>format4_collate <span class="ot">&lt;-</span> <span class="fu">collate_haplotype_variants</span>(format4_list, <span class="at">format =</span> <span class="dv">4</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" tabindex="-1"></a><span class="do">##format5</span></span>
+<span id="cb17-18"><a href="#cb17-18" tabindex="-1"></a>format5B <span class="ot">&lt;-</span> format5</span>
+<span id="cb17-19"><a href="#cb17-19" tabindex="-1"></a>format5_list <span class="ot">&lt;-</span> <span class="fu">list</span>(format5, format5B)</span>
+<span id="cb17-20"><a href="#cb17-20" tabindex="-1"></a>format5_collate <span class="ot">&lt;-</span> <span class="fu">collate_haplotype_variants</span>(format5_list, <span class="at">format =</span> <span class="dv">5</span>)</span>
+<span id="cb17-21"><a href="#cb17-21" tabindex="-1"></a><span class="do">##Format6</span></span>
+<span id="cb17-22"><a href="#cb17-22" tabindex="-1"></a>format6B <span class="ot">&lt;-</span> format6</span>
+<span id="cb17-23"><a href="#cb17-23" tabindex="-1"></a>format6_list <span class="ot">&lt;-</span> <span class="fu">list</span>(format6, format6B)</span>
+<span id="cb17-24"><a href="#cb17-24" tabindex="-1"></a>format6_collate <span class="ot">&lt;-</span> <span class="fu">collate_haplotype_variants</span>(format6_list, <span class="at">format =</span> <span class="dv">6</span>)</span></code></pre></div>
+</div>
+<div id="identify-haplotypes-variants-globally" class="section level2">
+<h2>Identify Haplotypes Variants Globally</h2>
+<p>haplotype_variants_global runs haplotype_variants for a list of vcf
+files, LD matrices and epsilon values. All other parameters are the same
+as in haplotype_variants.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>format1_global <span class="ot">&lt;-</span> <span class="fu">haplotype_variants_global</span>(vcf_list, LD_list, <span class="at">epsilon =</span> epsilon_list, <span class="at">format =</span> <span class="dv">1</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>format2_global <span class="ot">&lt;-</span> <span class="fu">haplotype_variants_global</span>(vcf_list, LD_list, <span class="at">epsilon =</span> epsilon_list, <span class="at">format =</span> <span class="dv">2</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>format3_global <span class="ot">&lt;-</span> <span class="fu">haplotype_variants_global</span>(vcf_list, LD_list, <span class="at">epsilon =</span> epsilon_list, <span class="at">format =</span> <span class="dv">3</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>format4_global <span class="ot">&lt;-</span> <span class="fu">haplotype_variants_global</span>(vcf_list, LD_list, <span class="at">epsilon =</span> epsilon_list, <span class="at">format =</span> <span class="dv">4</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>format5_global <span class="ot">&lt;-</span> <span class="fu">haplotype_variants_global</span>(vcf_list, LD_list, <span class="at">epsilon =</span> epsilon_list, <span class="at">format =</span> <span class="dv">5</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>format6_global <span class="ot">&lt;-</span> <span class="fu">haplotype_variants_global</span>(vcf_list, LD_list, <span class="at">epsilon =</span> epsilon_list, <span class="at">format =</span> <span class="dv">6</span>)</span></code></pre></div>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<p>Ester, M., Kriegel, H. P., Sander, J., &amp; Xu, X. (1996). A
+density-based algorithm for discovering clusters in large spatial
+databases with noise.</p>
+<p>Hill, W. G., &amp; Robertson, A. (1968). Linkage disequilibrium in
+finite populations. Theoretical and Applied Genetics, 38(6), 226–231. <a href="https://doi.org/10.1007/BF01245622" class="uri">https://doi.org/10.1007/BF01245622</a></p>
+<p>Lewontin, R. C. (1964). The interaction of selection and linkage. I.
+General considerations; heterotic models. Genetics (Austin), 49(1),
+49–67. <a href="https://doi.org/10.1093/genetics/49.1.49" class="uri">https://doi.org/10.1093/genetics/49.1.49</a></p>
+<p>Marsh, J. I., Petereit, J., Johnston, B. A., Bayer, P. E., Tay
+Fernandez, C. G., Al-Mamun, H. A.,…Edwards, D. (2023). crosshap: R
+package for local haplotype visualization for trait association
+analysis. Bioinformatics (Oxford, England), 39(8). <a href="https://doi.org/10.1093/bioinformatics/btad518" class="uri">https://doi.org/10.1093/bioinformatics/btad518</a></p>
+<p>Robbins, R. B. (1918). Some applications of mathematics to breeding
+problems III. Genetics (Austin), 3(4), 375–389. <a href="https://doi.org/10.1093/genetics/3.4.375" class="uri">https://doi.org/10.1093/genetics/3.4.375</a></p>
+<p>Wu, D., Liang, Z., Yan, T., Xu, Y., Xuan, L., Tang, J., Zhou, G.,
+Lohwasser, U., Hua, S., Wang, H., Chen, X., Wang, Q., Zhu, L., Maodzeka,
+A., Hussain, N., Li, Z., Li, X., Shamsi, I. H., Jilani, G., … Jiang, L.
+(2019). Whole-Genome Resequencing of a Worldwide Collection of Rapeseed
+Accessions Reveals the Genetic Basis of Ecotype Divergence. Molecular
+Plant, 12(1), 30–43. <a href="https://doi.org/10.1016/j.molp.2018.11.007" class="uri">https://doi.org/10.1016/j.molp.2018.11.007</a></p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
