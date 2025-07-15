@@ -1,0 +1,7 @@
+#' Linkage Disequilibrium Matrix
+#'
+#' Pairwise R^2 values for 3990 Brassica napus single nucleotide polymorphisms (SNPs).
+#'
+#'
+#' @source Wu, D., Liang, Z., Yan, T., Xu, Y., Xuan, L., Tang, J., Zhou, G., Lohwasser, U., Hua, S., Wang, H., Chen, X., Wang, Q., Zhu, L., Maodzeka, A., Hussain, N., Li, Z., Li, X., Shamsi, I. H., Jilani, G., … Jiang, L. (2019). Whole-Genome Resequencing of a Worldwide Collection of Rapeseed Accessions Reveals the Genetic Basis of Ecotype Divergence. Molecular Plant, 12(1), 30–43. https://doi.org/10.1016/j.molp.2018.11.007
+"LD"
