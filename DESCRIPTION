@@ -1,0 +1,29 @@
+Package: HaploVar
+Type: Package
+Title: Defining Local Haplotype Variants for Use in Trait Association and Trait Prediction Analyses  
+Version: 0.1.0
+Authors@R: c(person("Tessa", "MacNish", email = "tessa.macnish@research.uwa.edu.au", role = c("aut", "cre"), comment = c(ORCID = "0009-0008-8985-7348")), person("Hawlader", "Al-Mamun", role = "ctb"), person("Thomas", "Bergmann", role = "ctb"), person("Mitchell", "Bestry", role = "ctb"), person("Jacob", "Marsh", role = "ctb"), person("David", "Edwards", role = "ctb"))
+Description: A local haplotyping tool for use in trait association and trait prediction analyses pipelines.
+    HaploVar enables users take single nucleotide polymorphisms (SNPs) (in VCF format) and a linkage 
+    disequilibrium (LD) matrix, calculate local haplotypes and format the output to be compatible with 
+    a wide range of trait association and trait prediction tools. The local haplotypes are calculated 
+    from the LD matrix using a clustering algorithm called density-based spatial clustering of applications 
+    with noise (DBSCAN) (Ester et al., 1996) <ISBN: 1577350049>. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    dplyr,
+    tidyr,
+    tibble,
+    magrittr,
+    dbscan
+Depends: 
+    R (>= 4.00)
+LazyData: true
+LazyDataCompression: xz
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
