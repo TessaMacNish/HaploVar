@@ -25,8 +25,12 @@ HaploVar requires a VCF file and an LD matrix to calculate local haplotypes. For
 The first step is to download HaploVar.
 
 ``` {r installation, eval = FALSE}
-install.packages("devtools")
-devtools::install_github("TessaMacNish/HaploVar")
+##Install the development version from github
+#install.packages("devtools")
+#devtools::install_github("TessaMacNish/HaploVar")
+
+##Or install directly from CRAN
+install.packages("HaploVar")
 ```
 
 ``` {r message = FALSE, warning = FALSE, eval = TRUE}
