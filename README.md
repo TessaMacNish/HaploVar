@@ -9,9 +9,15 @@
 `HaploVar` can be installed using the following code:
 
 ``` r
-#install.packages("devtools")
+#Install the development version from github
+install.packages("devtools")
 devtools::install_github("TessaMacNish/HaploVar")
+
+#or install directly from CRAN
+install.packages("HaploVar")
+
 library(HaploVar)
+
 ```
 ## Documentaion
 
