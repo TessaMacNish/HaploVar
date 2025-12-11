@@ -4,6 +4,11 @@
 
 `HaploVar` defines local haplotypes and is designed to be used as part of a GWAS or genomic selection pipeline. `HaploVar` takes a VCF file and a LD matrix, calculates local haplotypes, identifies haplotype variants and formats the output to be compatible with a wide range of GWAS and genomic selection tools. Halotypes improve the ability of GWAS to detect QTLs and increase the trait prediction accuracy of genomic selection studies. 
 
+## How to cite HaploVar
+When using HaploVar, please cite the following publication.
+
+MacNish, T. R., Al-Mamun, H. A., Bergmann, T., Bestry, M. S., Marsh, J. I., & Edwards, D. (2025). HaploVar: An R package for defining local haplotype variants for trait association and trait prediction analyses. Bioinformatics, 41(12), btaf602. https://doi.org/10.1093/bioinformatics/btaf602
+
 ## Installation
 
 `HaploVar` can be installed using the following code:
