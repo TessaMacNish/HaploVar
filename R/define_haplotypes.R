@@ -39,8 +39,8 @@ define_haplotypes <- function(vcf, LD, epsilon = 0.6, MGmin = 30,  hetmiss_as = 
   preMGfile <- tibble::tibble(CHROM = vcf$"#CHROM", POS = vcf$POS, ID = rownames(LD), cluster = db_out$cluster) %>%
     dplyr::filter(cluster != 0)  # Remove rows where the haplotype is 0 (noise)
 
-  # Check if there are multiple clusters
-  if (base::length(base::unique(preMGfile$cluster)) > 1) {
+  # Check if there are clusters
+  if (base::length(base::unique(preMGfile$cluster)) >= 1) {
     # Initialize a list to store the haplotype-specific tables
     cluster_tables <- base::list()
 
@@ -58,9 +58,10 @@ define_haplotypes <- function(vcf, LD, epsilon = 0.6, MGmin = 30,  hetmiss_as = 
       # Calculate the start and end positions
       start_pos <- base::min(dbscan_cvel$POS)
       end_pos <- base::max(dbscan_cvel$POS)
-
+      chr <- dbscan_cvel$CHROM[[1]]
+      
       # Create the haplotype name
-      hap_name <- base::paste0("hap_", start_pos, "_", end_pos)
+      hap_name <- base::paste0("hap_", chr, "_", start_pos, "_", end_pos)
 
       # Store the SNP table for this haplotype in the list
       cluster_tables[[hap_name]] <- cvel_vcf
