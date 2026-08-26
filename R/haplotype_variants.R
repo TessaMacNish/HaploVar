@@ -37,8 +37,8 @@ haplotype_variants <- function(vcf, LD, epsilon = 0.6, MGmin = 30, minFreq = 2, 
   ##Define haplotypes using DBSCAN
   db_out <- dbscan::dbscan(LD, eps = epsilon, minPts = MGmin)
   preMGfile <- tibble::tibble(CHROM = vcf$"#CHROM",POS = vcf$POS, ID = rownames(LD), cluster = db_out$cluster)
-  # Check if there are multiple haplotypes
-  if (base::length(base::unique(preMGfile$cluster)) > 1) {
+  # Check if there are haplotypes
+  if (base::length(base::unique(preMGfile$cluster)) >= 1) {
     # Initialize a list to store the haplotype-specific tables
     cluster_tables <- base::list()
 
@@ -155,7 +155,7 @@ haplotype_variants <- function(vcf, LD, epsilon = 0.6, MGmin = 30, minFreq = 2, 
       cluster_snp_info <- preMGfile %>% dplyr::filter(cluster == as.numeric(cluster_id))
 
       if (nrow(cluster_snp_info) > 1) {
-        hap_name <- paste0("hap_", base::min(cluster_snp_info$POS), "_", base::max(cluster_snp_info$POS))
+        hap_name <- paste0("hap_", base::unique(cluster_snp_info$CHROM)[1], "_",  base::min(cluster_snp_info$POS), "_", base::max(cluster_snp_info$POS))
         chromosome <- base::unique(cluster_snp_info$CHROM)[1]
         start_pos <- base::min(cluster_snp_info$POS)
 
