@@ -32,7 +32,7 @@ For a tutorial on how to use `HaploVar` please refer to [introduction](https://h
 
 There is now a Nextflow pipline to help you run HaploVar. This pipeline will prepare the VCF for you and give you the final haplotype file. For example the pipeline will calculate the linkage disequilibrium matrices for you. Please access the Nextflow pipeline [here](https://github.com/TessaMacNish/HaploVar_nextflow).
 
-## Pipeline Overview 
+## HaploVar Workflow Overview 
 
 An example of a `HaploVar` workflow for preparing for genomic prediction is below:
 
