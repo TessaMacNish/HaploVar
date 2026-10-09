@@ -74,6 +74,10 @@ NOTE: If you want to prepare haplotype variants for GWAS instead of genomic sele
 write.table(format6, "output.vcf", sep = "\t", row.names = FALSE, col.names = TRUE, quote = FALSE)
 ```
 
+## New Update - Nextflow Pipeline!
+
+There is now a Nextflow pipline to help you run HaploVar. This pipeline will prepare the VCF for you and give you the final haplotype file. For example the pipeline will calculate the linkage disequilibrium matrices for you. Please access the Nextflow pipeline [here](https://github.com/TessaMacNish/HaploVar_nextflow).
+
 ### References 
 Clayton D. snpStats: SnpMatrix and XSnpMatrix classes and methods. R pack-age version 1.59.2. 2025. https://bioconductor.org/packages/snpStats
 
